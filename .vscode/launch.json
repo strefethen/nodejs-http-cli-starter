@@ -10,9 +10,10 @@
         "name": "Launch Program",
         "program": "${workspaceRoot}/app.js",
         "args": [
-            "https://sc-rdops-vm18-dhcp-35-96.eng.vmware.com",
-            "administrator@vsphere.local",
-            "Admin!23"
+            "https://sc-rdops-vm08-dhcp-229-208.eng.vmware.com/rest/com/vmware/cis/session",
+            "-m", "POST"
+            "-u", "administrator@vsphere.local",
+            "-p", "Admin!23"
         ]
     },
         {

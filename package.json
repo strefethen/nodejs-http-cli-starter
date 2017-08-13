@@ -14,6 +14,7 @@
     "commander": "^2.11.0",
     "json-colorz": "^0.2.7",
     "request": "^2.81.0",
+    "tough-cookie": "^2.3.2",
     "tough-cookie-filestore": "0.0.1",
     "tough-cookie-store": "0.0.6"
   }

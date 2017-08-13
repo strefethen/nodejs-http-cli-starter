@@ -29,7 +29,7 @@ program
   .option('-p, --password <password>', 'The user\'s password')
   .action(function(url) {
       if (program.username && program.password) {
-        headers['Authorization'] = 'Basic ' + new Buffer(`${program.user}:${program.password}`).toString('base64')
+        headers['Authorization'] = 'Basic ' + new Buffer(`${program.username}:${program.password}`).toString('base64')
       }
       request(
         {
@@ -37,7 +37,6 @@ program
           method: program.method,
           headers: headers,
           strictSSL: false,
-          jar: true,
         }
         , function(error, response, body) {
           if (error) {
@@ -45,9 +44,8 @@ program
             process.exit(1);
           } else {
             json_colorz(JSON.parse(body));
-            process.exit(0);
           }
         }
-      )
+      );
   })
   .parse(process.argv);
