@@ -43,7 +43,11 @@ program
             console.log(chalk.red(error));
             process.exit(1);
           } else {
-            json_colorz(JSON.parse(body));
+            if (response.headers['content-type'].startsWith('application/json')) {
+              json_colorz(JSON.parse(body));
+            } else {
+              console.log(body);
+            }
           }
         }
       );
