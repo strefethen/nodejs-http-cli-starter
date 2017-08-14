@@ -1,7 +1,15 @@
 # nodejs-http-cli-starter
 Basic nodejs http cli starter.
 
-# VMware VAPI Example session
+## Setup
+Requires NodeJS.
+
+    $ git clone https://github.com/strefethen/nodejs-http-cli-starter.git
+    ...
+    $ cd nodejs-http-cli-starter
+    $ npm install
+
+## VMware VAPI Example session
 Here's an example of calling VMWare's REST API:
 
 First, we authenticate to the vSphere REST endpoint:
@@ -13,7 +21,7 @@ First, we authenticate to the vSphere REST endpoint:
 
 Next, we fetch a list of hosts (uses persistent cookie set in above auth call):
 
-    $ nodejs-http-cli-starter git:(master) ✗ node app.js https://sc-rdops-vm08-dhcp-229-208.eng.vmware.com/rest/vcenter/host
+    $ node app.js https://sc-rdops-vm08-dhcp-229-208.eng.vmware.com/rest/vcenter/host
     {
     value: [    {
         host: "host-51",

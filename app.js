@@ -13,32 +13,35 @@ var headers = {
 
 var cookiepath = "cookies.json";
 
-// create the json file if it does not exist
+// create cookies.json file if it does not exist
 if(!fs.existsSync(cookiepath)){
     fs.closeSync(fs.openSync(cookiepath, 'w'));
 }
 
-// use the FileCookieStore with the request package
 var jar = request.jar(new FileCookieStore(cookiepath));
 request = request.defaults({ jar : jar });
 
 program
   .arguments('<url>')
-  .option('-m --method <method>', 'HTTP method', /^(GET|POST|PUT)$/i, 'GET')
-  .option('-u, --username <username>', 'The user to authenticate as')
-  .option('-p, --password <password>', 'The user\'s password')
+  .option('-m, --method', 'HTTP method use for the request', /^(GET|POST|PUT)$/i, 'GET')
+  .option('-u, --username', 'The user to authenticate as')
+  .option('-p, --password', 'The user\'s password')
+  .option('-b, --body', 'The body of a POST request')
+  .option('-c, --content-type', 'The content-type header value for a POST request')
   .action(function(url) {
       if (program.username && program.password) {
         headers['Authorization'] = 'Basic ' + new Buffer(`${program.username}:${program.password}`).toString('base64')
       }
-      request(
-        {
+      var options = {
           url : url,
           method: program.method,
           headers: headers,
           strictSSL: false,
         }
-        , function(error, response, body) {
+      if (program.method === "POST") {
+        options['body'] = program.body;
+      }
+      request(options, function(error, response, body) {
           if (error) {
             console.log(chalk.red(error));
             process.exit(1);
