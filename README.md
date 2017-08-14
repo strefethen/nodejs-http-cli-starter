@@ -38,7 +38,7 @@ Next, we fetch a list of hosts (uses persistent cookie set in above auth call):
     }
 
 ## curl Example
-The above is equivalent to using the following curl commands:
+The above is equivalent to using the following curl commands but lacking the pretty printing/formatting:
 
     $ curl https://sc-rdops-vm08-dhcp-229-208.eng.vmware.com/rest/com/vmware/cis/session  -u "administrator@vsphere.local:Admin\!23" -k -X POST -c cookie-jar.txt
     {"value":"cf786dd607805d8a9e89d85a6833354f"}%
