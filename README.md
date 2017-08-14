@@ -1,5 +1,5 @@
 # nodejs-http-cli-starter
-Basic nodejs http cli starter.
+Basic nodejs http cli starter tool. Includes pretty printing and syntax highlighting of JSON and a persistent cookie jar making easy to make successive API calls.
 
 ## Setup
 Requires NodeJS.
