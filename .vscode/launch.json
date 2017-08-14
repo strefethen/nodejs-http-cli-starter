@@ -11,7 +11,7 @@
         "program": "${workspaceRoot}/app.js",
         "args": [
             "https://sc-rdops-vm08-dhcp-229-208.eng.vmware.com/rest/com/vmware/cis/session",
-            "-m", "POST"
+            "-m", "POST",
             "-u", "administrator@vsphere.local",
             "-p", "Admin!23"
         ]

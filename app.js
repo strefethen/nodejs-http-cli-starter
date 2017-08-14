@@ -23,11 +23,11 @@ request = request.defaults({ jar : jar });
 
 program
   .arguments('<url>')
-  .option('-m, --method', 'HTTP method use for the request', /^(GET|POST|PUT)$/i, 'GET')
-  .option('-u, --username', 'The user to authenticate as')
-  .option('-p, --password', 'The user\'s password')
-  .option('-b, --body', 'The body of a POST request')
-  .option('-c, --content-type', 'The content-type header value for a POST request')
+  .option('-m, --method <method>', 'HTTP method use for the request', /^(GET|POST|PUT)$/i, 'GET')
+  .option('-u, --username <username>', 'The user to authenticate as')
+  .option('-p, --password <password>', 'The user\'s password')
+  .option('-b, --body <body>', 'The body of a POST request')
+  .option('-c, --content-type <content-type>', 'The content-type header value for a POST request')
   .action(function(url) {
       if (program.username && program.password) {
         headers['Authorization'] = 'Basic ' + new Buffer(`${program.username}:${program.password}`).toString('base64')
